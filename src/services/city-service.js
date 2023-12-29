@@ -17,6 +17,7 @@ class CityService {
 
     async deleteCity(cityId){
         try {
+            console.log("service",cityId);
             const response = await this.cityRepository.deleteCity(cityId);
             return response;
         } catch (error) {
@@ -46,3 +47,5 @@ class CityService {
     }
 
 }
+
+module.exports = CityService;

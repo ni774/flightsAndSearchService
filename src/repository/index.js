@@ -1,3 +1,3 @@
 module.exports = {
-    CityRepositry: require('./city-repository')
+    CityRepository: require('./city-repository')
 }
