@@ -2,9 +2,9 @@
 
 //? here i amm importing from index.js insted of city.js or you can 
 // ? import from city,js too but using index.js it will automatically destrucred
+
 const {City} = require('../models/index');
-
-
+const { Op } = require('sequelize');
 
 class CityRepository {
     async createCity({name}){
@@ -33,6 +33,7 @@ class CityRepository {
 
     async updateCity(cityId,data){   //{name:"prayagraj"}
         try {
+
             // const city = await City.update(data,{
             //     where: {
             //         id:cityId
@@ -53,6 +54,36 @@ class CityRepository {
         try {
             const city = await City.findByPk(cityId);
             return city;
+        } catch (error) {
+            console.log("something went wrong in the repository layer");
+            throw (error);
+        }
+    }
+
+    // async getAllCities(){
+    //     try {
+    //         const cities = await City.findAll();
+    //         return cities;
+    //     } catch (error) {
+    //         console.log("something went wrong in the repository layer");
+    //         throw (error);
+    //     }
+    // }
+
+    async getAllCities(filter){
+        try {
+            if(filter.name){
+                const cities = await City.findAll({
+                    where: {
+                        name:{
+                            [Op.startsWith]: filter.name
+                        }
+                    }
+                });
+                return cities;
+            }
+            const cities = await City.findAll();
+            return cities;
         } catch (error) {
             console.log("something went wrong in the repository layer");
             throw (error);
