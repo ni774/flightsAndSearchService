@@ -1,4 +1,5 @@
 //!repository is for fetching data from other resources e.g. DB
+//! service is for implimenting bussiness logic
 
 //? here i amm importing from index.js insted of city.js or you can 
 // ? import from city,js too but using index.js it will automatically destrucred

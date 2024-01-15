@@ -26,4 +26,20 @@
   - Flight(id,src_city_id,dest_airport_id, deppartatue_time, arival_time)
   - Airport(id,name,city_id,address)
   - City(id,name)
-  - 
+  
+  -Aflight belongs to an airplane but noe airplane  can be used in multiple flights
+  - acity has many airports but one airport belongs to a city
+  - one airport can have many flights, but a flight belongs to one airport
+
+
+
+## Tables
+
+### City -> id,name, created_at, updated_at
+### Airoport -> id, name, address, city-Id, created_at , updated_at
+Relationship -> City has many airports and Airports belongs to a city (one to many)
+
+```
+npx sequelize model:generate --name Airport --attributes
+name:String, address:String, cityId:integer
+```
