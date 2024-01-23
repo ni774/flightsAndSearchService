@@ -5,8 +5,7 @@
 // ? import from city,js too but using index.js it will automatically destrucred
 
 const {City} = require('../models/index');
-const { Op } = require('sequelize');
-
+const { Op } = require('sequelize');  //for filtering data
 class CityRepository {
     async createCity({name}){
         try{
