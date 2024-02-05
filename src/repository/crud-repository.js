@@ -29,7 +29,7 @@ class CrudRepository{
 
     async get(modelId){
         try {
-            const result = await this.model.findBYPk(modelId);
+            const result = await this.model.findByPk(modelId);
             return result;
         } catch (error) {
             console.log("something went wrong in crud repo");
@@ -39,7 +39,8 @@ class CrudRepository{
 
     async getAll(){
         try {
-            
+            const result = await this.model.findAll();
+            return result;
         } catch (error) {
             console.log("something went wrong in crud repo");
             throw {error};
